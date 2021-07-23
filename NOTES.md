@@ -27,6 +27,11 @@ users can browse other teams that other users have created
     - STRETCH: people can upvote or like their favorite teams?
   - NavBar => Home | Pokemon | Trainers 
 
+### Goals
+  - Style the project as I go
+  - Create a useful custom hook
+  
+
 
 
 
