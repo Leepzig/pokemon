@@ -1,15 +1,22 @@
 import React from 'react'
+import PokemonCard from "./PokemonCard"
+
+import Grid from '@material-ui/core/Grid'
+
 
 const PokemonList = ( { pokemon } ) => {
 
 
 
-  const pokemonArray = pokemon.map(poke => <li key={poke.name}>{poke.name}</li>)
+  const pokemonArray = pokemon.map(poke => <PokemonCard  pokemon={poke} key={poke.id}/>)
+
   return (
     <div>
-      <ul>
+      <Grid container spacing={3}>
         {pokemonArray}
-      </ul>
+
+      </Grid>
+   
       
     </div>
   )
