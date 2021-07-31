@@ -3,24 +3,16 @@ import React, { useState } from "react"
 
 
 
-export const useCounter = (intialCount) => {
+export const useColorManager = (initialColor) => {
+  const [color, setColor] = useState(initialColor)
 
-  const [count, setCount] = useState(intialCount)
-
-  function increaseCount() {
-    setCount(count+1)
+  function changeLightness(change) {
+    let oldColor = color.split(",")
+    let numL = parseInt(oldColor[2])
+    const newNumL = (numL + change) + "%)"
+    oldColor.splice(2, 1, newNumL)
+    return oldColor
   }
 
-  return [count, increaseCount]
-}
-
-export const useButtonSwitch = (initialButton) => {
-  const [button, setButton] = useState(initialButton)
-
-  function OnOffSwitch(e) {
-    e.target.style.backgroundColor = e.target.style.backgroundColor === button.onColor? button.offColor : button.onColor
-  }
-  const example = { onColor:"green", offColor:"red"}
-
-  return [button, OnOffSwitch]
+  return [color, changeLightness]
 }

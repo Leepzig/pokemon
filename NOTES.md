@@ -31,6 +31,11 @@ users can browse other teams that other users have created
   - Style the project as I go
   - Create a useful custom hook
   
+  # Today
+
+  - Create Trainer's list to add pokemon
+  - paginate
+  
 
 
 
