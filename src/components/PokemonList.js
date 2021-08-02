@@ -1,11 +1,10 @@
 import React from 'react'
 import PokemonCard from "./PokemonCard"
-import Search from "./Search"
-
+import { Typography, Button } from "@material-ui/core"
 import Grid from '@material-ui/core/Grid'
 
 
-const PokemonList = ( { pokemon, handleAddPokemon } ) => {
+const PokemonList = ( { pokemon, handleAddPokemon, page, previousPage, nextPage, classes } ) => {
 
   
 
@@ -16,7 +15,9 @@ const PokemonList = ( { pokemon, handleAddPokemon } ) => {
       <hr/>
       <Grid container spacing={3}>
         {pokemonArray}
-
+        <div>
+        <Button onClick={previousPage} className={classes.btn}>Previous</Button> {page} <Button className={classes.btn} onClick={nextPage}>Next</Button>
+        </div>
       </Grid>
       
       

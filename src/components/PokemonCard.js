@@ -93,8 +93,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1
   },
   paper: {
-    height: 350,
-    width: 250,
+    height: 385,
+    width: 300,
   },
   cardColor:{
     backgroundColor: cardColor

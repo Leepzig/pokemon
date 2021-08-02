@@ -41,7 +41,10 @@ function App() {
 
   const useStyles = makeStyles((theme) => ({
     btn:{
-      backgroundColor:"hsl(0, 0%, 70%)"
+      backgroundColor:"hsl(0, 0%, 70%)",
+      margin: theme.spacing(1),
+      variant:"outlined",
+      size:"small"
     }
   }))
 
@@ -73,9 +76,9 @@ function App() {
       <Typography variant="subtitle1">Where every pokemon can be yours with the click of a button</Typography>
       <TrainersLineup pickedPokemon={pickedPokemon} removePokemon={removePokemon}/>
       <Search getSearch={getSearch} search={search}/>
-      <PokemonList pokemon={pokemon} handleAddPokemon={handleAddPokemon}/>
-      <div style={{padding:"20px"}}>
-      <Button onClick={previousPage} className={classes.btn}>Previous</Button> {page} <Button className={classes.btn} onClick={nextPage}>Next</Button>
+      <PokemonList pokemon={pokemon} handleAddPokemon={handleAddPokemon} classes={classes} page={page} nextPage={nextPage} previousPage={previousPage}/>
+      <div>
+        
       
       </div>
     </div>
