@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button';
 
 import { useColorManager } from "./hooks"
 
-const PokemonCard = ( { pokemon } ) => {
+const PokemonCard = ( { pokemon, buttonFunction } ) => {
   let cardColor
   let buttonColor
 
@@ -29,6 +29,7 @@ const PokemonCard = ( { pokemon } ) => {
   const [fightingColor, changeFightingColor] = useColorManager("hsl(25, 100%, 80%)")
   const [rockColor, changeRockColor] = useColorManager("hsl(42, 33%, 76%)")
   const [fairyColor, changeFairyColor] = useColorManager("hsl(323, 100%, 94%)")
+  const [ghostColor, changeGhostColor] = useColorManager("hsl(323, 17%, 52%)")
 
   const lightnessChange = -20
 
@@ -77,6 +78,10 @@ const PokemonCard = ( { pokemon } ) => {
       cardColor = fightingColor
       buttonColor = changeFightingColor(lightnessChange)
       break
+    case "ghost":
+      cardColor = ghostColor
+      buttonColor = changeGhostColor(lightnessChange)
+      break
     default:
       cardColor = normalColor
       buttonColor = changeNormalColor(lightnessChange)
@@ -119,16 +124,16 @@ const classes = useStyles()
             <CardContent>
               <Typography>{pokemon.abilities[0].name}</Typography>
               <Grid container justifyContent="flex-start">
-              <Typography variant="subtitle">HP: {pokemon.stats.hp}</Typography>
-              <Typography variant="subtitle">Attack: {pokemon.stats.attack}</Typography>
-              <Typography variant="subtitle">Defense: {pokemon.stats.defense}</Typography>
-              <Typography variant="subtitle">Special Attack: {pokemon.stats["special-attack"]}</Typography>
-              <Typography variant="subtitle">Special Defense: {pokemon.stats["special-defense"]}</Typography>
-              <Typography variant="subtitle">Speed: {pokemon.stats.speed}</Typography>
+              <Typography variant="subtitle1">HP: {pokemon.stats.hp}</Typography>
+              <Typography variant="subtitle1">Attack: {pokemon.stats.attack}</Typography>
+              <Typography variant="subtitle1">Defense: {pokemon.stats.defense}</Typography>
+              <Typography variant="subtitle1">Special Attack: {pokemon.stats["special-attack"]}</Typography>
+              <Typography variant="subtitle1">Special Defense: {pokemon.stats["special-defense"]}</Typography>
+              <Typography variant="subtitle1">Speed: {pokemon.stats.speed}</Typography>
 
               </Grid>
               <Typography>{pokemon.types[0]}</Typography>
-              <Button className={classes.buttonColor}>Add To List</Button>
+              <Button onClick={() => buttonFunction(pokemon)} className={classes.buttonColor}>Add To List</Button>
             </CardContent>
           </Grid>
 

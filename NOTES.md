@@ -39,7 +39,8 @@ users can browse other teams that other users have created
 
 
 
-
+## Types
+missing colors for steel, dragon, ice, dark
 
 
 
